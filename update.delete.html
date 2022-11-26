@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style2.css">
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"> </script>
+
+</head>
+
+<body>
+  <div class="formbold-main-wrapper">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="formbold-form-wrapper">
+      <h1 class="formbold-form-label"><b>Findshopbot for admin</h1>
+      <h3 class="formbold-form-label"> The usage of an uploading page</h3>
+      <ul class="formbold-form-label">
+        <li>Delete image</li>
+        <li>Insert Image</li>
+        <li>Submit close page or return first page</li>
+      </ul>
+      <br /><br /><br />
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+        Name image :<input type="text" name="id"><br /><br />
+        <input type="submit" name="delete" multiple onclick="confirmation()"><br /><br />
+        <div id="selectedBanner"></div>
+        <br />
+      </form>
+      <br /><br />
+      <div class="container" style="width:500px;">
+        <h3 align="center">Insert and Display Images From Mysql Database in PHP</h3>
+        <br />
+        <form method="post" enctype="multipart/form-data">
+          <input type="text" name="image" id="image" />
+          <br />
+          <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+        </form>
+        <br />
+        <br />
+        <table class="table table-bordered">
+          <tr>
+            <th>Image</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script>
+      function confirmation() {
+        var result = confirm("Are you sure to delete?");
+        if (result) {
+          console.log("Deleted")
+        }
+      }
+    </script>
+    <script>
+      var selDiv = "";
+      var storedFiles = [];
+      $(document).ready(function () {
+        $("#img").on("change", handleFileSelect);
+        selDiv = $("#selectedBanner");
+      });
+
+      function handleFileSelect(e) {
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        filesArr.forEach(function (f) {
+          if (!f.type.match("image.*")) {
+            return;
+          }
+          storedFiles.push(f);
+
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            var html =
+              '<img src="' +
+              e.target.result +
+              "\" data-file='" +
+              f.name +
+              "alt='Category Image' height='200px' width='200px'>";
+            selDiv.html(html);
+          };
+          reader.readAsDataURL(f);
+        });
+      }
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('#insert').click(function () {
+          var image_name = $('#image').val();
+          if (image_name == '') {
+            alert("Please Select Image");
+            return false;
+          }
+          else {
+            var extension = $('#image').val().split('.').pop().toLowerCase();
+            if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+              alert('Invalid Image File');
+              $('#image').val('');
+              return false;
+            }
+          }
+        });
+      });  
+    </script>
+    </form>
+    <br />
+
+
+  </div>
+
+
+</body>
+
+</html>

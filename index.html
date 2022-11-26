@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"> </script>
+  <script src="save.js"></script>
+</head>
+
+<body>
+  <div class="formbold-main-wrapper">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="formbold-form-wrapper">
+      <h1 class="formbold-form-label"><b>Findshopbot for admin</h1>
+      <h3 class="formbold-form-label"> The usage of an uploading page</h3>
+      <ul class="formbold-form-label">
+        <li>Add shop's name</li>
+        <li>Add details such "Brand" and "Color"</li>
+        <li>Upload image for update product</li>
+        <li>Submit and close page</li>
+      </ul>
+      <br /><br /><br />
+      <form action="upload.php" method="post" enctype="multipart/form-data" >
+        <div class="formbold-input-flex">
+          <div>
+            <label for="shopname" class="formbold-form-label"> Please input shop's name </label>
+            <input type="text" class="formbold-form-input" name="shopname" id="shopname" placeholder="abshoes" value="" />
+          </div>
+          <div>
+            <label for="Brand" class="formbold-form-label"> Brand of product </label>
+            <input type="text" class="formbold-form-input"  name="brand" id="brand" placeholder="nike" value="" />
+          </div>
+          <div>
+            <label for="Color" class="formbold-form-label"> Color of product </label>
+            <input type="text" class="formbold-form-input" name="color" id="color" placeholder="black" value="" />
+          </div>
+        </div>
+        <input type="file" name="file" id="file"></br></br>
+        <input type="submit" name="submit" class="formbold-btn" value="submit"  />
+      </form>
+      <br />
+    </div>
+    <div>
+      <p>
+        TEST IMAGE
+      </p>
+    </div>
+</body>
+
+</html>
