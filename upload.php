@@ -26,10 +26,7 @@
 		    echo "Error: " . $query . "" . mysqli_error($connect);
 	  }
 	  mysqli_close($connect);
-
-    return "test SUBMIT";
   }
-
   if(isset($_FILES['file'])){
     $file_name =$_FILES['file']['name'];
     $file_tmp =$_FILES['file']['tmp_name'];
@@ -39,7 +36,7 @@
 
   if(isset($_POST['insert'])){
     $query = "SELECT * FROM admin ORDER BY id DESC";  
-    $result = mysqli_query($connect, $query);  
+                $result = mysqli_query($connect, $query);  
                 while($row = mysqli_fetch_array($result))  
                 {  
                      echo '  
@@ -51,27 +48,21 @@
                      ';  
                 }  
   }
-
-  if(isset($_POST['delete'])){
-    $id=$_POST['id'];
-    $query1 = "delete from project where id = '$id' ";  
-    $result = mysqli_query($connect,$query1);
-    if($result){
-      echo "Data Deleted. .";
-    } else {
-      echo "Data not Deleted. .";
-
-    }
-    mysqli_close($connect);
+if(isset($_POST['delete'])){
+  $id=$_POST['id'];
+  $query1 = "delete from project where id = '$id' ";  
+  $result = mysqli_query($connect,$query1);
+  if($result){
+    echo "Data Deleted. .";
   }
-    
-  function imgList(){
-    GLOBAL $connect ;
-    $query = "SELECT * FROM admin ORDER BY id DESC";  
-    $result = mysqli_query($connect, $query);  
+  
+  else{
+    echo "Data not Deleted. .";
 
-    echo "TEST";
-    mysqli_close($connect);
+  }
+  mysqli_close($connect);
 }
+  
+
 
 ?>
