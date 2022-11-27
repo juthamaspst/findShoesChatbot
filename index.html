@@ -5,7 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"> </script>
-  <script src="save.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" type="text/javascript"></script>
+  <script src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+		body{
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
+	</style>
+
 </head>
 
 <body>
@@ -13,39 +24,52 @@
     <!-- Author: FormBold Team -->
     <!-- Learn More: https://formbold.com -->
     <div class="formbold-form-wrapper">
-      <h1 class="formbold-form-label"><b>Findshopbot for admin</h1>
-      <h3 class="formbold-form-label"> The usage of an uploading page</h3>
-      <ul class="formbold-form-label">
-        <li>Add shop's name</li>
-        <li>Add details such "Brand" and "Color"</li>
-        <li>Upload image for update product</li>
-        <li>Submit and close page</li>
-      </ul>
-      <br /><br /><br />
-      <form action="upload.php" method="post" enctype="multipart/form-data" >
-        <div class="formbold-input-flex">
-          <div>
-            <label for="shopname" class="formbold-form-label"> Please input shop's name </label>
-            <input type="text" class="formbold-form-input" name="shopname" id="shopname" placeholder="abshoes" value="" />
-          </div>
-          <div>
-            <label for="Brand" class="formbold-form-label"> Brand of product </label>
-            <input type="text" class="formbold-form-input"  name="brand" id="brand" placeholder="nike" value="" />
-          </div>
-          <div>
-            <label for="Color" class="formbold-form-label"> Color of product </label>
-            <input type="text" class="formbold-form-input" name="color" id="color" placeholder="black" value="" />
-          </div>
+    <h1 class="formbold-form-label" style="text-align:center;"><b>Findshopbot for admin</b></h1>
+    <h3 class="formbold-form-label" style="text-align:center;">เพิ่มรูปภาพเพื่ออัพเดทฐานข้อมูลของร้านคุณ</h3>
+    <ul class="formbold-form-label">
+      <!-- <li>Add shop's name</li> -->
+      <li>ระบุข้อมูลของภาพ ได้แก่ ยี่ห้อของรองเท้า สีของรองเท้า</li>
+      <li>เพิ่มรูปภาพที่ต้องการ</li>
+      <li>กดปุ่ม Submit</li>
+    </ul>
+    <br /><br /><br />
+    <!-- <form action="upload.php" method="post" enctype="multipart/form-data" > -->
+    <form>
+      <div class="formbold-input-flex">
+        <!-- <div>
+          <label for="shopname" class="formbold-form-label"> Please input shop's name </label>
+          <input type="text" class="formbold-form-input" name="shopname" id="shopname" placeholder="abshoes" value="" />
+        </div> -->
+        <div>
+          <h2 class="formbold-form-label"> ยี่ห้อของรองเท้า </h2>
+          <select id="brand">
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+            <option value="van">Van</option>
+            <option value="convert">Convert</option>
+            <option value="other">อื่นๆ</option>
+          </select>
         </div>
-        <input type="file" name="file" id="file"></br></br>
-        <input type="submit" name="submit" class="formbold-btn" value="submit"  />
-      </form>
-      <br />
-    </div>
-    <div>
-      <p>
-        TEST IMAGE
-      </p>
+        <div>
+          <h2 class="formbold-form-label"> ประเภทของรองเท้า </h2>
+          <select id="type">
+            <option value="sneaker">Sneaker</option>
+            <option value="slipper">Slipper</option>
+          </select>
+        </div>
+      </div>
+      <div style="display: flex;">
+        <label class="custom-file-upload">
+          <input type="file" name="file" id="file" onchange="fileName()">
+          Upload รูปภาพของคุณ
+        </label>
+        <div id="fileName">
+          
+        </div>
+      </div>
+      <input type="submit" name="submit" class="formbold-btn" onclick="submitData()">
+    </form>
+    <br />
     </div>
 </body>
 

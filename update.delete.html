@@ -22,7 +22,7 @@
       </ul>
       <br /><br /><br />
       <form action="upload.php" method="post" enctype="multipart/form-data">
-        Name image :<input type="text" name="id"><br /><br />
+        Name image :<input type="text" name="Imagename"><br /><br />
         <input type="submit" name="delete" multiple onclick="confirmation()"><br /><br />
         <div id="selectedBanner"></div>
         <br />
@@ -31,10 +31,12 @@
       <div class="container" style="width:500px;">
         <h3 align="center">Insert and Display Images From Mysql Database in PHP</h3>
         <br />
-        <form method="post" enctype="multipart/form-data">
-          <input type="text" name="image" id="image" />
-          <br />
-          <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+          <input type="text" 
+                  name="test">
+
+           <input type="submit" 
+                  name="insert">
         </form>
         <br />
         <br />
