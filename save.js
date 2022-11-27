@@ -13,5 +13,6 @@
     //     })
 
 console.log("Test save script");
+console.log("Test save script 2");
 /*ngrok http File:///C:/xampp/htdocs/Adminupdate
 action="upload.php" method="post" enctype="multipart/form-data" */
