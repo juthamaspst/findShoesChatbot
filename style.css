@@ -11,12 +11,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 48px;
-      height: 100vh;
+      margin: 50px;
     }
   
     .formbold-form-wrapper {
-      margin: 0 auto;
+      margin: 30px auto;
       max-width: 550px;
       width: 100%;
       background: white;
@@ -102,9 +101,8 @@
       font-size: 16px;
       width: 100%;
       border-radius: 5px;
-      padding: 12px 25px;
+      padding: 10px 20px;
       border: none;
-      font-weight: 500;
       background-color: #6A64F1;
       color: white;
       cursor: pointer;
@@ -134,9 +132,54 @@
     .custom-file-upload {
       border: 1px solid #ccc;
       display: inline-block;
-      padding: 6px 12px;
+      padding: 10px 20px;
       cursor: pointer;
       border-radius: 5px;
       background-color: #07074D;
       color: white;
+      width: auto;
+      text-align: center;
     }
+    .input-file-block {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .file-name-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .file-name-block {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      margin: 10px 0;
+    }
+    img {
+      object-fit: cover;
+    }
+
+@media screen and (max-width : 640px) {
+  .formbold-input-flex {
+    flex-direction: column;
+  }
+  .input-file-block {
+    flex-direction: column;
+  }
+  .file-name-block {
+    width: 100%;
+  }
+  .formbold-input-flex > div {
+    width: 100%;
+  }
+  .custom-file-upload {
+    width: 100%;
+  }
+  
+}

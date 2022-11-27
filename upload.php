@@ -37,6 +37,27 @@
 	  // mysqli_close($connect);
     // return $status;
   // }
+  if(!$connect)
+  {
+    die("Connection Failed:" . mysqli_connect_error());
+
+  }
+  mysqli_set_charset($connect,"utf8");
+  if(isset($_POST['submit'])){
+    $Shopname = $_POST['shopname'];
+    $Brand = $_POST['brand'];
+    $Color = $_POST['color'];
+    $img=$_FILES['file']['name'];
+    $query = "INSERT INTO admin(shopname,brand,color,Imagename) VALUE ('$Shopname','$Brand','$Color','$img')";
+    if (mysqli_query($connect, $query)){
+        echo '<h1 align="center">***Findshopbot ได้เพิ่มข้อมูลของคุณเรียบร้อยแล้ว***</font></h1>';
+        echo '<h1 align="center">***กดที่เครื่องหมาย X มุมขวาบนเพื่อปิดหน้าต่างนี้***</font></h1>';
+	  } 
+	  else{
+		    echo "Error: " . $query . "" . mysqli_error($connect);
+	  }
+	  mysqli_close($connect);
+  }
   if(isset($_FILES['file'])){
     $file_name =$_FILES['file']['name'];
     $file_tmp =$_FILES['file']['tmp_name'];

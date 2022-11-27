@@ -32,7 +32,6 @@
       <li>เพิ่มรูปภาพที่ต้องการ</li>
       <li>กดปุ่ม Submit</li>
     </ul>
-    <br /><br /><br />
     <!-- <form action="upload.php" method="post" enctype="multipart/form-data" > -->
     <form>
       <div class="formbold-input-flex">
@@ -41,8 +40,9 @@
           <input type="text" class="formbold-form-input" name="shopname" id="shopname" placeholder="abshoes" value="" />
         </div> -->
         <div>
-          <h2 class="formbold-form-label"> ยี่ห้อของรองเท้า </h2>
+          <h3 class="formbold-form-label"> ยี่ห้อของรองเท้า </h3>
           <select id="brand">
+            <option value="" selected disabled>กรุณาระบุยี่ห้อของรองเท้า</option>
             <option value="nike">Nike</option>
             <option value="adidas">Adidas</option>
             <option value="van">Van</option>
@@ -51,14 +51,15 @@
           </select>
         </div>
         <div>
-          <h2 class="formbold-form-label"> ประเภทของรองเท้า </h2>
+          <h3 class="formbold-form-label"> ประเภทของรองเท้า </h3>
           <select id="type">
+            <option value="" selected disabled>กรุณาระบุประเภทของรองเท้า</option>
             <option value="sneaker">Sneaker</option>
             <option value="slipper">Slipper</option>
           </select>
         </div>
       </div>
-      <div style="display: flex;">
+      <div class="input-file-block">
         <label class="custom-file-upload">
           <input type="file" name="file" id="file" onchange="fileName()">
           Upload รูปภาพของคุณ
@@ -70,6 +71,12 @@
       <input type="submit" name="submit" class="formbold-btn" onclick="submitData()">
     </form>
     <br />
+    <div>
+      <h3>รูปภาพสินค้าของร้านคุณ</h3>
+      <div id="fileNameList" class="file-name-container">
+
+      </div>
+    </div>
     </div>
 </body>
 
